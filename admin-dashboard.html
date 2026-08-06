@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Smart Agro Admin Dashboard</title>
+
+<style>
+
+body{
+    font-family:Arial;
+    background:#e8f5e9;
+}
+
+
+.container{
+    width:90%;
+    margin:auto;
+}
+
+
+.header{
+    background:green;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+
+.card{
+
+    background:white;
+    padding:20px;
+    margin:20px 0;
+    border-radius:10px;
+    box-shadow:0 0 10px gray;
+
+}
+
+
+input{
+
+    width:90%;
+    padding:10px;
+    margin:8px;
+
+}
+
+
+button{
+
+    padding:10px 20px;
+    background:green;
+    color:white;
+    border:none;
+    cursor:pointer;
+    margin:5px;
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="header">
+
+<h1>🌱 Smart Agro Admin Dashboard</h1>
+
+<h3>Welcome Admin</h3>
+
+</div>
+
+
+
+<div class="container">
+
+
+
+<div class="card">
+
+<h2>Products Management</h2>
+
+
+<button onclick="viewProducts()">
+View Products
+</button>
+
+
+<button onclick="showAddProduct()">
+Add Product
+</button>
+
+
+</div>
+
+
+
+
+<div id="addBox"></div>
+
+
+
+<div id="result"></div>
+
+
+
+
+<div class="card">
+
+<h2>Orders Management</h2>
+
+
+<button onclick="viewOrders()">
+View Orders
+</button>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<script>
+
+
+// ==========================
+// VIEW PRODUCTS
+// ==========================
+
+
+function viewProducts(){
+
+
+document.getElementById("result").innerHTML=
+"<h2>Loading Products...</h2>";
+
+
+
+fetch("/products")
+
+
+.then(res=>res.json())
+
+
+.then(data=>{
+
+
+let output=`
+
+<div class="card">
+
+<h2>Products</h2>
+
+`;
+
+
+
+data.forEach(product=>{
+
+
+output += `
+
+<hr>
+<img src="images/${product.image}" width="150">
+
+
+<p>
+<b>${product.name}</b>
+</p>
+
+<p>
+Price: ₹${product.price}
+</p>
+
+<p>
+Category: ${product.category}
+</p>
+
+
+<button onclick="deleteProduct(${product.id})">
+
+Delete
+
+</button>
+
+
+`;
+
+
+
+});
+
+
+
+output+="</div>";
+
+
+document.getElementById("result").innerHTML=output;
+
+
+
+});
+
+
+}
+
+
+
+
+
+// ==========================
+// ADD PRODUCT FORM
+// ==========================
+
+
+function showAddProduct(){
+
+
+document.getElementById("addBox").innerHTML=`
+
+<div class="card">
+
+<h2>Add New Product</h2>
+
+
+<input id="pname" placeholder="Product Name">
+
+
+<input id="pdesc" placeholder="Description">
+
+
+<input id="pprice" placeholder="Price">
+
+
+<input id="pcategory" placeholder="Category">
+<input id="pimage" placeholder="Image Name (example: wheat.jpg)">
+
+<button onclick="addProduct()">
+
+Save Product
+
+</button>
+
+
+<p id="productMsg"></p>
+
+
+</div>
+
+`;
+
+
+
+}
+
+
+
+
+// ==========================
+// ADD PRODUCT
+// ==========================
+
+
+function addProduct(){
+
+
+let product={
+
+name:document.getElementById("pname").value,
+
+description:document.getElementById("pdesc").value,
+
+price:document.getElementById("pprice").value,
+
+category:document.getElementById("pcategory").value
+,
+image:document.getElementById("pimage").value
+
+};
+
+
+
+fetch("/add-product",{
+
+
+method:"POST",
+
+headers:{
+
+"Content-Type":"application/json"
+
+},
+
+body:JSON.stringify(product)
+
+
+})
+
+
+.then(res=>res.json())
+
+
+.then(data=>{
+
+
+document.getElementById("productMsg").innerHTML=
+
+"✅ "+data.message;
+
+
+});
+
+
+
+}
+
+
+
+
+
+// ==========================
+// VIEW ORDERS
+// ==========================
+
+
+function viewOrders(){
+
+
+document.getElementById("result").innerHTML=
+"<h2>Loading Orders...</h2>";
+
+
+
+fetch("/orders")
+
+
+.then(res=>res.json())
+
+
+.then(data=>{
+
+
+let output=`
+
+<div class="card">
+
+<h2>📦 Customer Orders</h2>
+
+`;
+
+
+
+data.forEach(order=>{
+
+
+output += `
+
+<hr>
+
+<h3>Order ID: ${order.id}</h3>
+
+
+<p>
+Customer: ${order.customer_name}
+</p>
+
+
+<p>
+Mobile: ${order.mobile}
+</p>
+
+
+<p>
+Address: ${order.address}
+</p>
+
+
+<p>
+Product: ${order.products}
+</p>
+
+
+<p>
+Quantity: ${order.quantity || 1}
+</p>
+
+
+<p>
+Status:
+
+<select onchange="updateStatus(${order.id}, this.value)">
+
+<option value="Pending"
+${order.status=="Pending"?"selected":""}>
+Pending
+</option>
+
+<option value="Confirmed"
+${order.status=="Confirmed"?"selected":""}>
+Confirmed
+</option>
+
+<option value="Delivered"
+${order.status=="Delivered"?"selected":""}>
+Delivered
+</option>
+
+</select>
+
+</p>
+
+
+<p>
+Date: ${order.created_at}
+</p>
+
+
+`;
+
+
+
+});
+
+
+
+output+="</div>";
+
+
+document.getElementById("result").innerHTML=output;
+
+
+
+});
+
+
+}
+
+
+
+
+// ==========================
+// DELETE PRODUCT
+// ==========================
+
+
+function deleteProduct(id){
+
+
+if(confirm("Delete this product?")){
+
+
+fetch("/delete-product/"+id,{
+
+method:"DELETE"
+
+})
+
+
+.then(res=>res.json())
+
+
+.then(data=>{
+
+
+alert(data.message);
+
+
+viewProducts();
+
+
+});
+
+
+}
+
+
+}
+// ==========================
+// UPDATE ORDER STATUS
+// ==========================
+
+function updateStatus(id,status){
+
+fetch("/update-order-status/"+id,{
+
+method:"PUT",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+status:status
+})
+
+})
+
+.then(res=>res.json())
+
+.then(data=>{
+
+alert(data.message);
+
+viewOrders();
+
+});
+
+}
+
+
+
+</script>
+
+
+</body>
+
+</html>

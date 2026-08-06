@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Agro Irrigation</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- Header -->
+
+<header>
+
+    <div class="logo">
+        🌱 <span>Smart Agro</span>
+    </div>
+
+
+    <nav>
+
+        <ul>
+
+            <li><a href="index.html">Home</a></li>
+
+            <li><a href="services.html">Services</a></li>
+
+            <li><a href="crop.html">Crop Advice</a></li>
+
+            <li><a href="irrigation.html">Irrigation</a></li>
+
+            <li><a href="agro-store.html">Store</a></li>
+
+            <li><a href="ai-chat.html">AI Assistant</a></li>
+
+            <li><a href="contact.html">Contact</a></li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+
+
+
+
+<!-- Banner -->
+
+<section class="hero">
+
+<div class="hero-text">
+
+<h1>
+💧 Smart Irrigation System
+</h1>
+
+<p>
+Save water and improve crop production with smart technology
+</p>
+
+</div>
+
+</section>
+
+
+
+
+
+
+
+<!-- Irrigation Types -->
+
+<section class="services">
+
+
+<h2>
+Modern Irrigation Methods
+</h2>
+
+
+
+<div class="service-box">
+
+
+
+<div class="card">
+
+<h3>
+🚰 Drip Irrigation
+</h3>
+
+<p>
+
+Drip irrigation supplies water directly
+to plant roots and reduces water wastage.
+
+<br><br>
+
+Best for:
+Vegetables, Fruits, Cotton
+
+</p>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h3>
+🌧 Sprinkler Irrigation
+</h3>
+
+<p>
+
+Sprinklers spray water like rainfall
+and provide uniform irrigation.
+
+<br><br>
+
+Best for:
+Wheat, Grass, Vegetables
+
+</p>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h3>
+🤖 AI Irrigation
+</h3>
+
+<p>
+
+AI checks soil moisture, weather,
+and crop needs to suggest watering time.
+
+</p>
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h3>
+🌱 Soil Moisture Monitoring
+</h3>
+
+<p>
+
+Sensors help farmers know when crops
+need water.
+
+</p>
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- Water Management -->
+
+
+<section class="categories">
+
+
+<h2>
+Smart Water Management Tips
+</h2>
+
+
+
+<div class="category-box">
+
+
+
+<div class="category">
+
+<h3>
+💧 Check Soil Moisture
+</h3>
+
+<p>
+Water crops only when required.
+</p>
+
+</div>
+
+
+
+
+<div class="category">
+
+<h3>
+🌅 Right Time Irrigation
+</h3>
+
+<p>
+Morning and evening watering reduces evaporation.
+</p>
+
+</div>
+
+
+
+
+<div class="category">
+
+<h3>
+🌧 Use Rainwater
+</h3>
+
+<p>
+Collect rainwater for farming use.
+</p>
+
+</div>
+
+
+
+
+<div class="category">
+
+<h3>
+🌱 Crop Based Watering
+</h3>
+
+<p>
+Different crops require different water levels.
+</p>
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- Irrigation Calculator -->
+
+<section class="contact">
+
+
+<h2>
+💧 Water Requirement Calculator
+</h2>
+
+
+<p>
+Enter crop area to get a basic water suggestion.
+</p>
+
+
+<input 
+type="number"
+id="area"
+placeholder="Farm Area (acre)"
+>
+
+
+<br><br>
+
+
+<button onclick="calculateWater()">
+
+Calculate
+
+</button>
+
+
+<div id="waterResult">
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- Footer -->
+
+
+<footer>
+
+
+<div>
+
+<h3>
+Smart Agro
+</h3>
+
+<p>
+Technology for modern agriculture.
+</p>
+
+</div>
+
+
+
+<div>
+
+<h3>
+Quick Links
+</h3>
+
+<a href="index.html">
+Home
+</a>
+<br>
+
+<a href="agro-store.html">
+Store
+</a>
+<br>
+
+<a href="ai-chat.html">
+AI Assistant
+</a>
+
+</div>
+
+
+
+
+<div>
+
+<h3>
+Contact
+</h3>
+
+<p>
+Email: smartagro@gmail.com
+</p>
+
+<p>
+Phone: +91 9876543210
+</p>
+
+</div>
+
+
+</footer>
+
+
+
+
+
+<script src="script.js"></script>
+
+
+<script>
+
+
+function calculateWater(){
+
+
+let area =
+document.getElementById("area").value;
+
+
+
+if(area==""){
+
+    alert("Enter farm area");
+
+    return;
+
+}
+
+
+
+let water =
+area * 4000;
+
+
+
+document.getElementById("waterResult").innerHTML =
+
+`
+
+<div class="card">
+
+<h3>💧 Water Requirement</h3>
+
+<p>
+Approximate water needed:
+<b>${water} liters</b>
+</p>
+
+<p>
+Use drip irrigation for better water saving.
+</p>
+
+</div>
+
+`;
+
+}
+
+
+</script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Smart Agro Profile</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<div class="logo">
+🌱 <span>Smart Agro</span>
+</div>
+
+</header>
+
+
+
+<section class="contact">
+
+
+<h2>
+👤 My Profile
+</h2>
+
+
+
+<div class="card">
+
+
+<h3 id="userName">
+User Name
+</h3>
+
+
+<p id="userEmail">
+Email
+</p>
+
+
+<button onclick="logout()">
+Logout
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+<script>
+
+
+let user = JSON.parse(localStorage.getItem("user"));
+
+
+
+if(user){
+
+
+document.getElementById("userName").innerHTML =
+"Name: " + user.fullname;
+
+
+document.getElementById("userEmail").innerHTML =
+"Email: " + user.email;
+
+
+}
+
+else{
+
+
+window.location.href="login.html";
+
+
+}
+
+
+
+
+function logout(){
+
+
+localStorage.removeItem("user");
+
+
+window.location.href="login.html";
+
+
+}
+
+
+</script>
+
+
+
+</body>
+
+</html>

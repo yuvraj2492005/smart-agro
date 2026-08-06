@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>My Orders - Smart Agro</title>
+
+<style>
+
+body{
+    font-family:Arial;
+    background:#e8f5e9;
+}
+
+.container{
+    width:90%;
+    margin:auto;
+}
+
+h1{
+    background:green;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    margin:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px gray;
+}
+
+.status{
+    color:green;
+    font-weight:bold;
+}
+
+
+body{
+    font-family:Arial;
+}
+
+
+/* इथे नवीन code paste करा */
+
+.status-box{
+    padding:10px;
+    border-radius:8px;
+    font-weight:bold;
+    text-align:center;
+}
+
+.pending{
+    background:#fff3cd;
+    color:#856404;
+}
+
+.confirmed{
+    background:#cfe2ff;
+    color:#084298;
+}
+
+.delivered{
+    background:#d1e7dd;
+    color:#0f5132;
+}
+
+.progress{
+    margin-top:15px;
+    font-size:25px;
+}
+
+</style>
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<h1>🌱 My Orders</h1>
+
+
+<div class="container">
+
+<div id="orders">
+
+Loading Orders...
+
+</div>
+
+</div>
+
+
+
+<script>
+
+
+let email = localStorage.getItem("email");
+
+function loadOrders(){
+
+
+fetch("/my-orders/"+email)
+
+.then(res=>res.json())
+
+
+.then(data=>{
+
+
+let output="";
+
+
+if(data.length==0){
+
+output="<h2>No Orders Found</h2>";
+
+}
+
+
+data.forEach(order=>{
+
+
+output += `
+
+<div class="card">
+
+
+<h2>Order ID: ${order.id}</h2>
+
+
+<p>
+Product: ${order.products}
+</p>
+
+
+<p>
+Quantity: ${order.quantity}
+</p>
+
+
+<p>
+Total: ₹${order.total_price}
+</p>
+
+
+<p>
+Address: ${order.address}
+</p>
+
+
+<p>
+Date: ${order.created_at}
+</p>
+
+
+<p class="status">
+
+Status: ${order.status}
+
+</p>
+
+
+</div>
+
+
+`;
+
+
+});
+
+
+document.getElementById("orders").innerHTML=output;
+
+
+});
+
+
+}
+
+
+
+loadOrders();
+
+
+
+
+
+</script>
+
+
+</body>
+
+</html>

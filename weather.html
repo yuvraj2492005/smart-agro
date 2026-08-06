@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Smart Agro Weather - Grapes Farming</title>
+
+<link rel="stylesheet" href="./css/style.css">
+
+</head>
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <div class="logo">
+        🍇 <span>Smart Agro</span>
+    </div>
+
+    <nav>
+        <ul id="navMenu">
+
+            <li><a href="index.html">Home</a></li>
+
+            <li><a href="about.html">About</a></li>
+
+            <li><a href="service.html">Services</a></li>
+
+            <li><a href="weather.html" class="active">Weather</a></li>
+
+            <li><a href="crop-advice.html">Crop Advice</a></li>
+
+            <li><a href="agro-store.html">Agro Store</a></li>
+
+            <li><a href="market.html">Market</a></li>
+
+            <li><a href="ai-chat.html">AI Assistant</a></li>
+
+            <li><a href="contact.html">Contact</a></li>
+
+        </ul>
+    </nav>
+
+</header>
+
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero weather-hero">
+
+    <div class="hero-content">
+
+        <span class="hero-tag">
+            🌦 Grapes Farming Weather
+        </span>
+
+        <h1>
+            Smart Weather Monitoring For
+            <span>Vineyards</span>
+        </h1>
+
+        <p>
+            Monitor temperature, humidity, rainfall and
+            weather conditions to protect your grape crops.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= SEARCH ================= -->
+
+<section class="weather">
+
+    <div class="section-heading">
+
+        <span class="small-title">
+            FARM WEATHER
+        </span>
+
+        <h2>
+            🌦 Check Your Farm Weather
+        </h2>
+
+        <p>
+            Enter your city or farming location to get
+            weather information and smart farming advice.
+        </p>
+
+    </div>
+
+
+    <div class="weather-search-card">
+
+        <div class="search-icon">
+            📍
+        </div>
+
+        <div class="search-content">
+
+            <h3>
+                Enter Your Location
+            </h3>
+
+            <p>
+                Get weather information for your vineyard.
+            </p>
+
+            <div class="weather-search">
+
+                <input
+                    type="text"
+                    id="city"
+                    placeholder="Enter City Name"
+                >
+
+                <button
+                    onclick="checkWeather()"
+                    class="btn"
+                >
+                    🔍 Search Weather
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div id="weatherResult"></div>
+
+</section>
+
+
+
+<!-- ================= WEATHER DETAILS ================= -->
+
+<section class="services weather-details">
+
+    <div class="section-heading">
+
+        <span class="small-title">
+            TODAY'S CONDITIONS
+        </span>
+
+        <h2>
+            🌡 Today's Farm Weather
+        </h2>
+
+        <p>
+            Understand the weather conditions before
+            irrigation, spraying and other farming activities.
+        </p>
+
+    </div>
+
+
+    <div class="service-box">
+
+
+        <div class="card weather-card">
+
+            <div class="weather-icon">
+                🌡️
+            </div>
+
+            <h3>
+                Temperature
+            </h3>
+
+            <strong>
+                30°C
+            </strong>
+
+            <p>
+                Suitable for crop monitoring
+            </p>
+
+        </div>
+
+
+
+        <div class="card weather-card">
+
+            <div class="weather-icon">
+                💧
+            </div>
+
+            <h3>
+                Humidity
+            </h3>
+
+            <strong>
+                65%
+            </strong>
+
+            <p>
+                Monitor fungal disease risk
+            </p>
+
+        </div>
+
+
+
+        <div class="card weather-card">
+
+            <div class="weather-icon">
+                🌧️
+            </div>
+
+            <h3>
+                Rain Chance
+            </h3>
+
+            <strong>
+                20%
+            </strong>
+
+            <p>
+                Low rainfall possibility
+            </p>
+
+        </div>
+
+
+
+        <div class="card weather-card">
+
+            <div class="weather-icon">
+                🌬️
+            </div>
+
+            <h3>
+                Wind Speed
+            </h3>
+
+            <strong>
+                12 km/h
+            </strong>
+
+            <p>
+                Check before spraying
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= GRAPES WEATHER ADVICE ================= -->
+
+<section class="grapes-section">
+
+    <div class="section-heading">
+
+        <span class="small-title">
+            VINEYARD CARE
+        </span>
+
+        <h2>
+            🍇 Grapes Farming Weather Advice
+        </h2>
+
+        <p>
+            Follow weather conditions to protect your
+            vineyard and improve grape quality.
+        </p>
+
+    </div>
+
+
+    <div class="service-box">
+
+
+        <div class="card advice-card">
+
+            <div class="advice-icon">
+                ☀️
+            </div>
+
+            <h3>
+                Hot Weather
+            </h3>
+
+            <p>
+                Increase irrigation frequency and protect
+                grape bunches from excessive heat.
+            </p>
+
+        </div>
+
+
+
+        <div class="card advice-card">
+
+            <div class="advice-icon">
+                🌧️
+            </div>
+
+            <h3>
+                Rainy Season
+            </h3>
+
+            <p>
+                Avoid excess irrigation and monitor fungal
+                diseases caused by high moisture.
+            </p>
+
+        </div>
+
+
+
+        <div class="card advice-card">
+
+            <div class="advice-icon">
+                ❄️
+            </div>
+
+            <h3>
+                Cold Weather
+            </h3>
+
+            <p>
+                Maintain proper vineyard care and protect
+                young grape vines from cold conditions.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= IRRIGATION ================= -->
+
+<section class="weather irrigation-section">
+
+    <div class="section-heading">
+
+        <span class="small-title">
+            SMART FARMING
+        </span>
+
+        <h2>
+            💧 Smart Irrigation Advice
+        </h2>
+
+        <p>
+            Weather-based irrigation helps save water
+            and supports healthy grape production.
+        </p>
+
+    </div>
+
+
+    <div class="irrigation-card">
+
+        <div class="irrigation-icon">
+            💧
+        </div>
+
+        <div>
+
+            <h3>
+                🍇 Vineyard Water Management
+            </h3>
+
+            <p>
+                Use drip irrigation and provide water
+                according to soil moisture, temperature
+                and weather conditions.
+            </p>
+
+            <a
+                href="crop-advice.html"
+                class="btn"
+            >
+                Calculate Water
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= FARMING TIPS ================= -->
+
+<section class="support">
+
+    <div class="section-heading">
+
+        <span class="small-title">
+            FARMER GUIDANCE
+        </span>
+
+        <h2>
+            🌱 Smart Weather Farming Tips
+        </h2>
+
+        <p>
+            Use weather information to make better
+            decisions for grape farming.
+        </p>
+
+    </div>
+
+
+    <div class="service-box">
+
+
+        <div class="card tip-card">
+
+            <div class="tip-number">
+                01
+            </div>
+
+            <h3>
+                🍇 Before Spraying
+            </h3>
+
+            <p>
+                Check rainfall and wind conditions before
+                applying pesticides or fertilizers.
+            </p>
+
+        </div>
+
+
+
+        <div class="card tip-card">
+
+            <div class="tip-number">
+                02
+            </div>
+
+            <h3>
+                💧 Water Management
+            </h3>
+
+            <p>
+                Adjust irrigation according to temperature,
+                rainfall and soil moisture.
+            </p>
+
+        </div>
+
+
+
+        <div class="card tip-card">
+
+            <div class="tip-number">
+                03
+            </div>
+
+            <h3>
+                🦠 Disease Prevention
+            </h3>
+
+            <p>
+                High humidity can increase fungal disease
+                risk in grape plants.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= AI SUPPORT ================= -->
+
+<section class="ai">
+
+    <div>
+
+        <span class="small-title">
+            SMART FARMING ASSISTANT
+        </span>
+
+        <h2>
+            👨‍🌾 Need Weather Help?
+        </h2>
+
+        <p>
+            Get smart suggestions for your vineyard
+            using the Smart Agro AI Assistant.
+        </p>
+
+        <a
+            href="ai-chat.html"
+            class="btn"
+        >
+            🤖 Ask AI Assistant
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+
+    <div>
+
+        <h3>
+            🍇 Smart Agro
+        </h3>
+
+        <p>
+            Smart Agriculture & Grapes Farming
+            Management System.
+        </p>
+
+    </div>
+
+
+
+    <div>
+
+        <h3>
+            Quick Links
+        </h3>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <br>
+
+        <a href="about.html">
+            About
+        </a>
+
+        <br>
+
+        <a href="service.html">
+            Services
+        </a>
+
+        <br>
+
+        <a href="agro-store.html">
+            Agro Store
+        </a>
+
+    </div>
+
+
+
+    <div>
+
+        <h3>
+            Services
+        </h3>
+
+        <a href="weather.html">
+            Weather
+        </a>
+
+        <br>
+
+        <a href="crop-advice.html">
+            Crop Advice
+        </a>
+
+        <br>
+
+        <a href="ai-chat.html">
+            AI Assistant
+        </a>
+
+    </div>
+
+
+
+    <div>
+
+        <h3>
+            Contact
+        </h3>
+
+        <p>
+            📧 smartagro@gmail.com
+        </p>
+
+        <p>
+            📞 +91 9876543210
+        </p>
+
+    </div>
+
+
+</footer>
+
+
+
+<!-- ================= COPYRIGHT ================= -->
+
+<div class="copyright">
+
+    <p>
+        © 2026 Smart Agro 🍇
+        All Rights Reserved.
+    </p>
+
+</div>
+
+
+
+<script src="./js/script.js"></script>
+
+</body>
+
+</html>

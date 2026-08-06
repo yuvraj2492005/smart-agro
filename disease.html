@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Agro Disease Detection</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- Header -->
+
+<header>
+
+    <div class="logo">
+        🌱 <span>Smart Agro</span>
+    </div>
+
+
+    <nav>
+
+        <ul>
+
+            <li><a href="index.html">Home</a></li>
+
+            <li><a href="services.html">Services</a></li>
+
+            <li><a href="crop.html">Crop Advice</a></li>
+
+            <li><a href="disease.html">Disease Detection</a></li>
+
+            <li><a href="agro-store.html">Store</a></li>
+
+            <li><a href="ai-chat.html">AI Assistant</a></li>
+
+            <li><a href="contact.html">Contact</a></li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+
+
+
+
+<!-- Banner -->
+
+<section class="hero">
+
+<div class="hero-text">
+
+<h1>
+🐛 AI Crop Disease Detection
+</h1>
+
+<p>
+Identify crop diseases and get farming solutions
+</p>
+
+</div>
+
+</section>
+
+
+
+
+
+
+
+
+<!-- Upload Section -->
+
+
+<section class="contact">
+
+
+<h2>
+Upload Crop Image
+</h2>
+
+
+
+<p>
+
+Upload a crop leaf image to identify possible diseases.
+
+</p>
+
+
+<br>
+
+
+<input 
+type="file"
+id="cropImage"
+accept="image/*"
+>
+
+
+
+<br><br>
+
+
+<button onclick="detectDisease()">
+
+Detect Disease
+
+</button>
+
+
+
+<div id="diseaseResult">
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- Disease Information -->
+
+
+<section class="services">
+
+
+<h2>
+Common Crop Diseases
+</h2>
+
+
+
+<div class="service-box">
+
+
+
+
+
+<div class="card">
+
+<h3>
+🍅 Tomato Leaf Disease
+</h3>
+
+<p>
+
+Symptoms:
+Yellow spots, leaf damage.
+
+<br><br>
+
+Treatment:
+Use fungicide and remove infected leaves.
+
+</p>
+
+</div>
+
+
+
+
+
+
+<div class="card">
+
+<h3>
+🌾 Rice Blast Disease
+</h3>
+
+<p>
+
+Symptoms:
+Brown spots on leaves.
+
+<br><br>
+
+Treatment:
+Use recommended fungicides and proper irrigation.
+
+</p>
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+<h3>
+🥔 Potato Blight
+</h3>
+
+<p>
+
+Symptoms:
+Dark patches on leaves.
+
+<br><br>
+
+Treatment:
+Use disease-resistant seeds and sprays.
+
+</p>
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+<h3>
+🌱 Cotton Leaf Disease
+</h3>
+
+<p>
+
+Symptoms:
+Leaf curling and spots.
+
+<br><br>
+
+Treatment:
+Use pest control and balanced fertilizer.
+
+</p>
+
+</div>
+
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- Prevention Tips -->
+
+
+<section class="categories">
+
+
+<h2>
+Disease Prevention Tips
+</h2>
+
+
+
+<div class="category-box">
+
+
+
+<div class="category">
+
+<h3>
+🌱 Healthy Seeds
+</h3>
+
+<p>
+Use certified disease-free seeds.
+</p>
+
+</div>
+
+
+
+
+<div class="category">
+
+<h3>
+💧 Proper Watering
+</h3>
+
+<p>
+Avoid overwatering crops.
+</p>
+
+</div>
+
+
+
+
+<div class="category">
+
+<h3>
+🌿 Soil Care
+</h3>
+
+<p>
+Maintain soil nutrients and quality.
+</p>
+
+</div>
+
+
+
+
+<div class="category">
+
+<h3>
+🤖 AI Support
+</h3>
+
+<p>
+Use Smart Agro AI for farming guidance.
+</p>
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- Footer -->
+
+
+<footer>
+
+
+<div>
+
+<h3>
+Smart Agro
+</h3>
+
+<p>
+AI based agriculture technology.
+</p>
+
+</div>
+
+
+
+<div>
+
+<h3>
+Quick Links
+</h3>
+
+<a href="index.html">
+Home
+</a>
+<br>
+
+<a href="agro-store.html">
+Store
+</a>
+<br>
+
+<a href="ai-chat.html">
+AI Assistant
+</a>
+
+</div>
+
+
+
+
+<div>
+
+<h3>
+Contact
+</h3>
+
+<p>
+Email: smartagro@gmail.com
+</p>
+
+<p>
+Phone: +91 9876543210
+</p>
+
+</div>
+
+
+</footer>
+
+
+
+
+
+<script src="script.js"></script>
+
+
+<script>
+
+function detectDisease(){
+
+    let image =
+    document.getElementById("cropImage").value;
+
+
+    if(image==""){
+
+        alert("Please upload a crop image");
+
+        return;
+
+    }
+
+
+    document.getElementById("diseaseResult").innerHTML =
+
+    `
+    <div class="card">
+
+    <h3>🤖 AI Detection Result</h3>
+
+    <p>
+    Possible Disease: Leaf Spot Disease
+    </p>
+
+    <p>
+    Suggested Action:
+    Use suitable fungicide and remove infected leaves.
+    </p>
+
+    </div>
+    `;
+
+}
+
+</script>
+
+
+
+</body>
+
+</html>

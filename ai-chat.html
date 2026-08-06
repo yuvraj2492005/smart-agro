@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Grapes Assistant - Smart Agro</title>
+
+<link rel="stylesheet" href="./css/style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+
+<header>
+
+<div class="logo">
+
+🍇 <span>Smart Agro</span>
+
+</div>
+
+
+<nav>
+
+<ul id="navMenu">
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="about.html">About</a></li>
+
+<li><a href="service.html">Services</a></li>
+
+<li><a href="weather.html">Weather</a></li>
+
+<li><a href="crop-advice.html">Crop Advice</a></li>
+
+<li><a href="agro-store.html">Agro Store</a></li>
+
+<li><a href="market.html">Market</a></li>
+
+<li><a href="ai-chat.html">AI Assistant</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+</ul>
+
+</nav>
+
+</header>
+
+
+
+
+
+
+<!-- ================= AI HERO ================= -->
+
+
+<section class="hero">
+
+
+<div class="hero-content">
+
+
+<span class="hero-tag">
+
+🤖 AI Grapes Farming Assistant
+
+</span>
+
+
+
+<h1>
+
+Your Smart Partner For
+
+<span>
+Grape Farming
+</span>
+
+</h1>
+
+
+
+<p>
+
+Ask questions about grapes,
+disease, fertilizer, irrigation and farming.
+
+</p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- ================= CHAT BOX ================= -->
+
+
+<section class="ai">
+
+
+<h2>
+
+🤖 Ask Smart Agro AI
+
+</h2>
+
+
+
+<div class="chat-container">
+
+
+
+<div id="chatBox" class="card">
+
+
+<p>
+
+<b>AI:</b> Hello Farmer 🍇  
+How can I help you with grape farming?
+
+</p>
+
+
+</div>
+
+
+
+
+
+<input 
+type="text"
+id="userInput"
+placeholder="Ask about grapes farming..."
+>
+
+
+
+<button onclick="sendAI()" class="btn">
+
+Send Message
+
+</button>
+
+
+
+</div>
+
+
+</section>
+<!-- ================= AI FEATURES ================= -->
+
+
+<section class="grapes-section">
+
+
+<h2>
+
+🍇 Grapes AI Knowledge Center
+
+</h2>
+
+
+
+<p>
+
+Get instant guidance for common
+grape farming problems.
+
+</p>
+
+
+
+<div class="service-box">
+
+
+
+
+
+<div class="card">
+
+
+<h3>
+🦠 Disease Detection
+
+</h3>
+
+
+<p>
+
+AI helps identify possible grape
+diseases and suggests basic solutions.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h3>
+🌿 Fertilizer Advice
+
+</h3>
+
+
+<p>
+
+Get fertilizer suggestions based on
+crop growth and soil condition.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h3>
+💧 Irrigation Support
+
+</h3>
+
+
+<p>
+
+Get water management tips to
+maintain healthy grape vines.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h3>
+📈 Market Guidance
+
+</h3>
+
+
+<p>
+
+Get suggestions about grape
+selling and market planning.
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- ================= COMMON QUESTIONS ================= -->
+
+
+<section class="services">
+
+
+<h2>
+
+❓ Common Farmer Questions
+
+</h2>
+
+
+
+<div class="service-box">
+
+
+
+
+
+<div class="card">
+
+
+<h3>
+🍇 Grapes Water Requirement?
+
+</h3>
+
+
+<p>
+
+Use drip irrigation and maintain
+proper soil moisture.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+<div class="card">
+
+
+<h3>
+🌿 Which Fertilizer For Grapes?
+
+</h3>
+
+
+<p>
+
+Use balanced nutrients according
+to crop stage.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+<div class="card">
+
+
+<h3>
+🦠 Leaf Disease Solution?
+
+</h3>
+
+
+<p>
+
+Check symptoms and take suitable
+crop protection steps.
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- ================= AI CHAT HELP ================= -->
+
+
+<section class="weather">
+
+
+<h2>
+
+🤖 Ask About Your Vineyard
+
+</h2>
+
+
+
+<div class="card">
+
+
+<p>
+
+Examples:
+
+</p>
+
+
+<ul>
+
+<li>
+My grapes leaves are yellow
+</li>
+
+<li>
+How much water is needed?
+</li>
+
+<li>
+Which fertilizer should I use?
+</li>
+
+<li>
+How to prevent diseases?
+</li>
+
+</ul>
+
+
+<a href="#chatBox" class="btn">
+
+Start Chat
+
+</a>
+
+
+</div>
+
+
+</section>
+<!-- ================= DISEASE DETECTION ================= -->
+
+
+<section class="support">
+
+
+<h2>
+
+🦠 Grapes Disease Detection
+
+</h2>
+
+
+<p>
+
+Upload crop information and get
+basic disease guidance.
+
+</p>
+
+
+
+<div class="service-box">
+
+
+
+<div class="card">
+
+
+<h3>
+🍃 Leaf Problems
+
+</h3>
+
+
+<p>
+
+Yellow leaves, spots and dryness
+can indicate crop issues.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+<div class="card">
+
+
+<h3>
+🍇 Fruit Problems
+
+</h3>
+
+
+<p>
+
+Monitor grape bunch quality and
+protect from infections.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+<div class="card">
+
+
+<h3>
+🌱 Plant Health
+
+</h3>
+
+
+<p>
+
+Regular checking helps maintain
+healthy grape vines.
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- ================= FARMER SUPPORT ================= -->
+
+
+<section class="ai">
+
+
+<h2>
+
+👨‍🌾 Smart Farmer Support
+
+</h2>
+
+
+<p>
+
+Need help with your vineyard?
+Use Smart Agro services.
+
+</p>
+
+
+
+<a href="contact.html" class="btn">
+
+Contact Expert
+
+</a>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- ================= FOOTER ================= -->
+
+
+<footer>
+
+
+<div>
+
+
+<h3>
+🍇 Smart Agro
+</h3>
+
+
+<p>
+
+Smart Agriculture &
+Grapes Farming Management System.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+<div>
+
+
+<h3>
+Quick Links
+</h3>
+
+
+<a href="index.html">
+Home
+</a>
+
+<br>
+
+
+<a href="about.html">
+About
+</a>
+
+<br>
+
+
+<a href="service.html">
+Services
+</a>
+
+<br>
+
+
+<a href="agro-store.html">
+Store
+</a>
+
+
+</div>
+
+
+
+
+
+
+<div>
+
+
+<h3>
+Features
+</h3>
+
+
+<a href="weather.html">
+Weather
+</a>
+
+<br>
+
+
+<a href="crop-advice.html">
+Crop Advice
+</a>
+
+<br>
+
+
+<a href="market.html">
+Market
+</a>
+
+
+</div>
+
+
+
+
+
+
+
+<div>
+
+
+<h3>
+Contact
+
+</h3>
+
+
+<p>
+📧 smartagro@gmail.com
+</p>
+
+
+<p>
+📞 +91 9876543210
+</p>
+
+
+</div>
+
+
+
+</footer>
+
+
+
+
+
+
+<div class="copyright">
+
+
+<p>
+
+© 2026 Smart Agro 🍇  
+All Rights Reserved.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<script src="./js/script.js"></script>
+
+
+</body>
+
+</html>

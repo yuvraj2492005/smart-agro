@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Grapes Crop Advice - Smart Agro</title>
+
+<link rel="stylesheet" href="./css/style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+
+<header>
+
+<div class="logo">
+
+🍇 <span>Smart Agro</span>
+
+</div>
+
+
+<nav>
+
+<ul id="navMenu">
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="about.html">About</a></li>
+
+<li><a href="service.html">Services</a></li>
+
+<li><a href="weather.html">Weather</a></li>
+
+<li><a href="crop-advice.html">Crop Advice</a></li>
+
+<li><a href="agro-store.html">Agro Store</a></li>
+
+<li><a href="market.html">Market</a></li>
+
+<li><a href="ai-chat.html">AI Assistant</a></li>
+
+<li><a href="contact.html">Contact</a></li>
+
+</ul>
+
+</nav>
+
+</header>
+
+
+
+
+
+<!-- ================= HERO ================= -->
+
+
+<section class="hero">
+
+
+<div class="hero-content">
+
+
+<span class="hero-tag">
+
+🍇 Grapes Crop Recommendation
+
+</span>
+
+
+
+<h1>
+
+Smart Advice For
+
+<span>
+Grape Farmers
+</span>
+
+</h1>
+
+
+
+<p>
+
+Get recommendations about soil,
+season, fertilizer and crop management.
+
+</p>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<!-- ================= CROP FORM ================= -->
+
+
+<section class="weather">
+
+
+<h2>
+
+🌱 Select Farm Details
+
+</h2>
+
+
+<div class="card">
+
+
+<label>
+Select Soil Type
+</label>
+
+
+<select id="soil">
+
+
+<option value="">
+Choose Soil
+</option>
+
+
+<option value="Black">
+Black Soil
+</option>
+
+
+<option value="Clay">
+Clay Soil
+</option>
+
+
+<option value="Loamy">
+Loamy Soil
+</option>
+
+
+<option value="Sandy">
+Sandy Soil
+</option>
+
+
+</select>
+
+
+
+
+
+<label>
+Select Season
+</label>
+
+
+<select id="season">
+
+
+<option value="">
+Choose Season
+</option>
+
+
+<option value="Summer">
+Summer
+</option>
+
+
+<option value="Monsoon">
+Monsoon
+</option>
+
+
+<option value="Winter">
+Winter
+</option>
+
+
+</select>
+
+
+
+
+
+<button onclick="recommendCrop()" class="btn">
+
+Get Recommendation
+
+</button>
+
+
+
+
+<div id="cropResult">
+
+</div>
+
+
+
+</div>
+
+
+</section>
+<!-- ================= GRAPES RECOMMENDATION ================= -->
+
+
+<section class="grapes-section">
+
+
+<h2>
+
+🍇 Grapes Farming Recommendations
+
+</h2>
+
+
+<p>
+
+Smart guidance for better grape
+production and quality.
+
+</p>
+
+
+
+
+<div class="service-box">
+
+
+
+<div class="card">
+
+
+<h3>
+🌱 Soil Management
+</h3>
+
+
+<p>
+
+Grapes grow better with proper soil
+drainage and nutrient management.
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+
+<h3>
+🌿 Fertilizer Management
+</h3>
+
+
+<p>
+
+Use balanced fertilizers according to
+soil condition and crop stage.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+<div class="card">
+
+
+<h3>
+💧 Irrigation Planning
+</h3>
+
+
+<p>
+
+Drip irrigation helps maintain moisture
+and saves water.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+<div class="card">
+
+
+<h3>
+🦠 Disease Protection
+</h3>
+
+
+<p>
+
+Regular monitoring helps prevent
+grape diseases.
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- ================= FERTILIZER GUIDE ================= -->
+
+
+<section class="services">
+
+
+<h2>
+
+🌿 Grapes Fertilizer Guide
+
+</h2>
+
+
+
+<div class="service-box">
+
+
+
+<div class="card">
+
+
+<h3>
+🌱 Organic Compost
+</h3>
+
+
+<p>
+
+Improves soil health and supports
+plant growth.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+<div class="card">
+
+
+<h3>
+🧪 NPK Fertilizer
+</h3>
+
+
+<p>
+
+Provides important nutrients for
+healthy grape vines.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+<div class="card">
+
+
+<h3>
+🍃 Micronutrients
+</h3>
+
+
+<p>
+
+Helps improve grape quality and
+plant development.
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- ================= IRRIGATION ADVICE ================= -->
+
+
+<section class="weather">
+
+
+<h2>
+
+💧 Smart Irrigation Advice
+
+</h2>
+
+
+<div class="card">
+
+
+<h3>
+
+🍇 Vineyard Water Management
+
+</h3>
+
+
+<p>
+
+Use drip irrigation and provide water
+according to soil moisture, weather
+and crop requirement.
+
+</p>
+
+
+
+<a href="weather.html" class="btn">
+
+Check Weather
+
+</a>
+
+
+</div>
+
+
+</section>
+<!-- ================= AI CROP SUGGESTION ================= -->
+
+
+<section class="ai">
+
+
+<h2>
+
+🤖 AI Grapes Farming Suggestions
+
+</h2>
+
+
+<p>
+
+Get smart recommendations for
+better grape production.
+
+</p>
+
+
+
+<div class="service-box">
+
+
+
+<div class="card">
+
+
+<h3>
+🍇 Crop Planning
+</h3>
+
+
+<p>
+
+Choose proper farming methods
+according to soil and season.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+<div class="card">
+
+
+<h3>
+🌿 Plant Care
+
+</h3>
+
+
+<p>
+
+Maintain proper nutrition,
+pruning and plant protection.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+<div class="card">
+
+
+<h3>
+📈 Quality Improvement
+
+</h3>
+
+
+<p>
+
+Follow smart practices to improve
+grape quality and production.
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+
+<a href="ai-chat.html" class="btn">
+
+Ask AI Assistant
+
+</a>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- ================= FARMING TIPS ================= -->
+
+
+<section class="support">
+
+
+<h2>
+
+📋 Grapes Farming Tips
+
+</h2>
+
+
+
+<div class="service-box">
+
+
+
+<div class="card">
+
+
+<h3>
+🍃 Regular Pruning
+</h3>
+
+
+<p>
+
+Proper pruning helps healthy
+growth of grape vines.
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+
+<h3>
+💧 Water Control
+</h3>
+
+
+<p>
+
+Avoid over irrigation and maintain
+proper soil moisture.
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+
+<h3>
+🦠 Disease Checking
+</h3>
+
+
+<p>
+
+Regularly check leaves and grapes
+for disease symptoms.
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- ================= FOOTER ================= -->
+
+
+<footer>
+
+
+<div>
+
+<h3>
+🍇 Smart Agro
+</h3>
+
+<p>
+
+Smart Agriculture &
+Grapes Farming Management System.
+
+</p>
+
+</div>
+
+
+
+
+<div>
+
+<h3>
+Quick Links
+</h3>
+
+<a href="index.html">
+Home
+</a>
+<br>
+
+<a href="about.html">
+About
+</a>
+<br>
+
+<a href="service.html">
+Services
+</a>
+<br>
+
+<a href="agro-store.html">
+Store
+</a>
+
+</div>
+
+
+
+
+
+<div>
+
+<h3>
+Features
+</h3>
+
+<a href="weather.html">
+Weather
+</a>
+<br>
+
+<a href="ai-chat.html">
+AI Assistant
+</a>
+<br>
+
+<a href="market.html">
+Market Price
+</a>
+
+</div>
+
+
+
+
+
+<div>
+
+<h3>
+Contact
+</h3>
+
+<p>
+📧 smartagro@gmail.com
+</p>
+
+<p>
+📞 +91 9876543210
+</p>
+
+</div>
+
+
+
+</footer>
+
+
+
+
+
+<div class="copyright">
+
+<p>
+
+© 2026 Smart Agro 🍇
+All Rights Reserved.
+
+</p>
+
+</div>
+
+
+
+
+
+<script src="./js/script.js"></script>
+
+
+</body>
+
+</html>

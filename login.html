@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Smart Agro Login</title>
+
+<link rel="stylesheet" href="./css/style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+
+<div class="logo">
+
+🌱 <span>Smart Agro</span>
+
+</div>
+
+
+
+<nav>
+
+
+<div class="menu-icon" onclick="toggleMenu()">
+
+☰
+
+</div>
+
+
+
+<ul id="navMenu">
+
+
+<li><a href="index.html">Home</a></li>
+
+<li><a href="about.html">About</a></li>
+
+<li><a href="service.html">Services</a></li>
+
+<li><a href="agro-store.html">Store</a></li>
+
+<li><a href="market.html">Market</a></li>
+
+<li><a href="login.html">Login</a></li>
+
+
+</ul>
+
+
+</nav>
+
+
+</header>
+
+
+
+
+
+
+
+
+<!-- LOGIN HERO -->
+
+
+<section class="hero">
+
+
+<div class="hero-text">
+
+
+<div class="hero-badge">
+
+🔐 Farmer Login
+
+</div>
+
+
+
+<h1>
+
+Welcome <span>Back</span>
+
+</h1>
+
+
+
+<p>
+
+Login to access Smart Agro farming services.
+
+</p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- LOGIN FORM -->
+
+
+<section class="contact">
+
+
+<h2>
+
+🔐 Login Account
+
+</h2>
+
+
+
+
+
+<form id="loginForm">
+
+
+
+<input
+
+type="email"
+
+id="email"
+
+placeholder="Enter Email"
+
+required
+
+>
+
+
+
+
+
+
+<input
+
+type="password"
+
+id="password"
+
+placeholder="Enter Password"
+
+required
+
+>
+
+
+
+
+
+
+
+<button type="submit">
+
+Login
+
+</button>
+
+
+
+</form>
+
+
+
+
+
+<div id="loginMsg">
+
+
+</div>
+
+
+
+
+<p style="margin-top:20px;">
+
+Don't have an account?
+
+<a href="register.html">
+
+Create Account
+
+</a>
+
+
+</p>
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- BENEFITS -->
+
+
+<section class="categories">
+
+
+<h2>
+
+Smart Agro Member Benefits
+
+</h2>
+
+
+
+<div class="category-box">
+
+
+
+<div class="category">
+
+
+<div class="category-icon">
+
+🌾
+
+</div>
+
+
+<h3>
+
+Crop Advice
+
+</h3>
+
+
+<p>
+
+Get smart crop recommendations.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="category">
+
+
+<div class="category-icon">
+
+🌦
+
+</div>
+
+
+<h3>
+
+Weather
+
+</h3>
+
+
+<p>
+
+Check farming weather updates.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="category">
+
+
+<div class="category-icon">
+
+🛒
+
+</div>
+
+
+<h3>
+
+Agro Store
+
+</h3>
+
+
+<p>
+
+Purchase farming products online.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="category">
+
+
+<div class="category-icon">
+
+🤖
+
+</div>
+
+
+<h3>
+
+AI Support
+
+</h3>
+
+
+<p>
+
+Get farming assistance anytime.
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- FOOTER -->
+
+
+<footer>
+
+
+<div>
+
+<h3>
+
+🌱 Smart Agro
+
+</h3>
+
+
+<p>
+
+Smart technology for modern agriculture.
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div>
+
+<h3>
+
+Quick Links
+
+</h3>
+
+
+<a href="index.html">Home</a><br>
+
+<a href="about.html">About</a><br>
+
+<a href="service.html">Services</a><br>
+
+<a href="contact.html">Contact</a>
+
+
+</div>
+
+
+
+
+
+<div>
+
+<h3>
+
+Services
+
+</h3>
+
+
+<a href="weather.html">Weather</a><br>
+
+<a href="crop.html">Crop Advice</a><br>
+
+<a href="ai-chat.html">AI Assistant</a>
+
+
+</div>
+
+
+
+
+
+<div>
+
+<h3>
+
+Contact
+
+</h3>
+
+
+<p>
+
+📧 smartagro@gmail.com
+
+</p>
+
+
+<p>
+
+📞 +91 9876543210
+
+</p>
+
+
+</div>
+
+
+
+<hr>
+
+
+<p class="copyright">
+
+© 2026 Smart Agro. All Rights Reserved.
+
+</p>
+
+
+</footer>
+
+
+
+
+
+
+<script src="./js/script.js"></script>
+
+
+
+<script>
+
+
+const loginForm = document.getElementById("loginForm");
+
+
+if(loginForm){
+
+
+loginForm.addEventListener("submit",function(e){
+
+
+e.preventDefault();
+
+
+
+let email=document.getElementById("email").value;
+
+let password=document.getElementById("password").value;
+
+
+
+fetch("/login",{
+
+
+method:"POST",
+
+
+headers:{
+
+
+"Content-Type":"application/json"
+
+},
+
+
+body:JSON.stringify({
+
+email:email,
+
+password:password
+
+})
+
+
+})
+
+
+
+.then(res=>res.json())
+
+
+.then(data=>{
+
+
+document.getElementById("loginMsg").innerHTML=
+
+
+`<div class="card">
+
+<h3>${data.message}</h3>
+
+</div>`;
+
+
+if(data.success){
+
+
+localStorage.setItem("user",data.fullname);
+
+
+}
+
+
+
+})
+
+
+
+.catch(()=>{
+
+
+document.getElementById("loginMsg").innerHTML=
+
+"<h3>Server Error</h3>";
+
+
+});
+
+
+});
+
+
+}
+
+
+</script>
+
+
+
+</body>
+
+</html>

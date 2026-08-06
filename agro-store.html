@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Smart Agro Store - Grapes Farming</title>
+
+<link rel="stylesheet" href="./css/style.css">
+
+<style>
+
+/* =========================================
+   SMART AGRO STORE
+   ========================================= */
+
+.store-categories{
+    padding:70px 7%;
+    text-align:center;
+    background:#ffffff;
+}
+
+.store-categories h2{
+    font-size:34px;
+    color:#176b35;
+    margin-bottom:10px;
+}
+
+.store-categories > p{
+    color:#666;
+    margin-bottom:25px;
+}
+
+
+/* SEARCH */
+
+.store-search{
+    max-width:650px;
+    margin:25px auto 35px;
+    display:flex;
+    gap:10px;
+}
+
+.store-search input{
+    flex:1;
+    padding:15px 20px;
+    border:1px solid #ddd;
+    border-radius:30px;
+    outline:none;
+    font-size:16px;
+    box-shadow:0 4px 15px rgba(0,0,0,.05);
+}
+
+.store-search button{
+    padding:15px 25px;
+    border:none;
+    border-radius:30px;
+    background:#16833a;
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.store-search button:hover{
+    background:#0d632b;
+}
+
+
+/* CATEGORY FILTER */
+
+.category-filters{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.category-filter{
+    padding:12px 20px;
+    border:2px solid #16833a;
+    background:white;
+    color:#16833a;
+    border-radius:30px;
+    cursor:pointer;
+    font-weight:600;
+    transition:.3s;
+}
+
+.category-filter:hover,
+.category-filter.active{
+    background:#16833a;
+    color:white;
+}
+
+
+/* PRODUCTS */
+
+.store-products{
+    padding:75px 7%;
+    background:#f5faf5;
+}
+
+.store-products h2{
+    text-align:center;
+    font-size:34px;
+    color:#176b35;
+    margin-bottom:8px;
+}
+
+.store-subtitle{
+    text-align:center;
+    color:#666;
+    margin-bottom:40px;
+}
+
+
+/* PRODUCT GRID */
+
+#productBox{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+
+/* PRODUCT CARD */
+
+.store-product-card{
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    transition:.3s;
+    padding-bottom:20px;
+    display:flex;
+    flex-direction:column;
+}
+
+.store-product-card:hover{
+    transform:translateY(-7px);
+    box-shadow:0 15px 35px rgba(0,0,0,.13);
+}
+
+
+/* IMAGE */
+
+.store-product-image{
+    width:100%;
+    height:210px;
+    object-fit:cover;
+    display:block;
+    background:#eef7ee;
+}
+
+
+/* CONTENT */
+
+.store-product-content{
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    flex:1;
+}
+
+.store-product-content h3{
+    margin:8px 0;
+    color:#176b35;
+    font-size:20px;
+}
+
+.store-product-content p{
+    color:#666;
+    line-height:1.6;
+    min-height:55px;
+}
+
+
+/* CATEGORY */
+
+.product-category{
+    display:inline-block;
+    width:max-content;
+    background:#e9f7ec;
+    color:#16833a;
+    padding:5px 12px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:600;
+}
+
+
+/* PRICE */
+
+.product-price{
+    font-size:23px;
+    font-weight:bold;
+    color:#16833a;
+    margin:15px 0;
+}
+
+
+/* CART BUTTON */
+
+.product-cart-btn{
+    width:100%;
+    padding:13px;
+    border:none;
+    border-radius:8px;
+    background:#16833a;
+    color:white;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:600;
+    margin-top:auto;
+}
+
+.product-cart-btn:hover{
+    background:#0e632b;
+}
+
+
+/* LOADING */
+
+.loading-products{
+    grid-column:1/-1;
+    text-align:center;
+    padding:60px;
+    font-size:20px;
+    color:#16833a;
+}
+
+
+/* NO PRODUCTS */
+
+.no-products{
+    grid-column:1/-1;
+    text-align:center;
+    padding:60px;
+    color:#777;
+    font-size:18px;
+}
+
+
+/* CART BANNER */
+
+.store-cart-banner{
+    padding:70px 7%;
+    text-align:center;
+    background:#ffffff;
+}
+
+.store-cart-banner h2{
+    color:#176b35;
+    font-size:32px;
+}
+
+
+/* PRODUCT COUNT */
+
+.product-count{
+    text-align:center;
+    margin-bottom:25px;
+    color:#555;
+    font-weight:600;
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:1100px){
+
+    #productBox{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+}
+
+
+@media(max-width:850px){
+
+    #productBox{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+
+@media(max-width:600px){
+
+    .store-categories{
+        padding:50px 5%;
+    }
+
+    .store-categories h2,
+    .store-products h2{
+        font-size:27px;
+    }
+
+    .store-search{
+        flex-direction:column;
+    }
+
+    .store-search button{
+        width:100%;
+    }
+
+    .category-filters{
+        gap:8px;
+    }
+
+    .category-filter{
+        width:100%;
+        padding:11px;
+    }
+
+    #productBox{
+        grid-template-columns:1fr;
+    }
+
+    .store-product-image{
+        height:230px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header>
+
+<div class="logo">
+
+🍇 <span>Smart Agro</span>
+
+</div>
+
+
+<nav>
+
+<ul id="navMenu">
+
+<li>
+<a href="index.html">Home</a>
+</li>
+
+<li>
+<a href="about.html">About</a>
+</li>
+
+<li>
+<a href="service.html">Services</a>
+</li>
+
+<li>
+<a href="weather.html">Weather</a>
+</li>
+
+<li>
+<a href="crop-advice.html">Crop Advice</a>
+</li>
+
+<li>
+<a href="agro-store.html" class="active">
+Agro Store
+</a>
+</li>
+
+<li>
+<a href="market.html">Market</a>
+</li>
+
+<li>
+<a href="ai-chat.html">AI Assistant</a>
+</li>
+
+<li>
+<a href="contact.html">Contact</a>
+</li>
+
+</ul>
+
+</nav>
+
+</header>
+
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<span class="hero-tag">
+🍇 Grapes Farming Store
+</span>
+
+
+<h1>
+
+Everything For
+
+<span>
+Smart Grape Farming
+</span>
+
+</h1>
+
+
+<p>
+
+Premium fertilizers, crop protection products,
+plant growth solutions and vineyard equipment.
+
+</p>
+
+
+<a href="#products" class="btn">
+Shop Products 🛒
+</a>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================
+     CATEGORY SECTION
+========================================= -->
+
+<section class="store-categories">
+
+<h2>
+🍇 Shop Grapes Farming Products
+</h2>
+
+<p>
+Choose a category or search for your required product.
+</p>
+
+
+<!-- SEARCH -->
+
+<div class="store-search">
+
+<input
+type="text"
+id="productSearch"
+placeholder="🔎 Search product..."
+onkeyup="searchProducts()"
+>
+
+<button onclick="searchProducts()">
+Search
+</button>
+
+</div>
+
+
+<!-- FILTERS -->
+
+<div class="category-filters">
+
+
+<button
+class="category-filter active"
+onclick="filterProducts('all',this)"
+>
+🍇 All
+</button>
+
+
+<button
+class="category-filter"
+onclick="filterProducts('Fertilizers',this)"
+>
+🌿 Fertilizers
+</button>
+
+
+<button
+class="category-filter"
+onclick="filterProducts('Fungicides',this)"
+>
+🦠 Fungicides
+</button>
+
+
+<button
+class="category-filter"
+onclick="filterProducts('Insecticides & Miticides',this)"
+>
+🐛 Insecticides
+</button>
+
+
+<button
+class="category-filter"
+onclick="filterProducts('Plant Growth Regulators',this)"
+>
+🌱 PGR
+</button>
+
+
+<button
+class="category-filter"
+onclick="filterProducts('Vineyard Tools & Hardware',this)"
+>
+🚜 Vineyard Tools
+</button>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================
+     PRODUCTS
+========================================= -->
+
+<section
+class="store-products"
+id="products"
+>
+
+<h2>
+🛒 Smart Agro Products
+</h2>
+
+
+<p class="store-subtitle">
+Quality grape farming products from Smart Agro.
+</p>
+
+
+<div
+id="productCount"
+class="product-count"
+>
+Loading products...
+</div>
+
+
+<div id="productBox">
+
+<div class="loading-products">
+
+⏳ Loading products...
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================
+     CART
+========================================= -->
+
+<section class="store-cart-banner">
+
+<h2>
+🛒 Ready To Order?
+</h2>
+
+<p>
+Check your selected products and proceed to checkout.
+</p>
+
+
+<a
+href="cart.html"
+class="btn"
+>
+Open Shopping Cart 🛒
+</a>
+
+</section>
+
+
+
+<!-- =========================================
+     WHY SMART AGRO
+========================================= -->
+
+<section class="support">
+
+<h2>
+🍇 Why Choose Smart Agro?
+</h2>
+
+
+<div class="service-box">
+
+
+<div class="card">
+
+<h3>
+🌿 Grape Farming Products
+</h3>
+
+<p>
+Products selected specially for
+modern grape farming needs.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+🛒 Easy Shopping
+</h3>
+
+<p>
+Search products, select a category
+and add products to your cart.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+👨‍🌾 Farmer Focused
+</h3>
+
+<p>
+Smart agriculture solutions designed
+for farmers and vineyards.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+
+<div>
+
+<h3>
+🍇 Smart Agro
+</h3>
+
+<p>
+Smart Agriculture &
+Grapes Farming Management System.
+</p>
+
+</div>
+
+
+<div>
+
+<h3>
+Quick Links
+</h3>
+
+<a href="index.html">Home</a>
+<br>
+
+<a href="about.html">About</a>
+<br>
+
+<a href="service.html">Services</a>
+<br>
+
+<a href="agro-store.html">Store</a>
+
+</div>
+
+
+<div>
+
+<h3>
+Store
+</h3>
+
+<a href="agro-store.html">
+Products
+</a>
+
+<br>
+
+<a href="cart.html">
+Cart
+</a>
+
+<br>
+
+<a href="checkout.html">
+Checkout
+</a>
+
+<br>
+
+<a href="market.html">
+Market
+</a>
+
+</div>
+
+
+<div>
+
+<h3>
+Contact
+</h3>
+
+<p>
+📧 smartagro@gmail.com
+</p>
+
+<p>
+📞 +91 9876543210
+</p>
+
+</div>
+
+
+</footer>
+
+
+
+<div class="copyright">
+
+<p>
+
+© 2026 Smart Agro 🍇
+All Rights Reserved.
+
+</p>
+
+</div>
+
+
+
+<!-- =========================================
+     EXISTING JS
+========================================= -->
+
+<script src="./js/script.js"></script>
+
+
+<!-- =========================================
+     STORE JS
+========================================= -->
+
+<script>
+
+let allProducts = [];
+
+let currentCategory = "all";
+
+
+// =========================================
+// LOAD PRODUCTS
+// =========================================
+
+function loadProducts(){
+
+    const productBox =
+        document.getElementById("productBox");
+
+    productBox.innerHTML = `
+        <div class="loading-products">
+            ⏳ Loading products...
+        </div>
+    `;
+
+
+    fetch("/products")
+
+    .then(response => {
+
+        if(!response.ok){
+            throw new Error("Product API Error");
+        }
+
+        return response.json();
+
+    })
+
+    .then(data => {
+
+        allProducts = Array.isArray(data)
+            ? data
+            : [];
+
+        applyFilters();
+
+    })
+
+    .catch(error => {
+
+        console.log(error);
+
+        document.getElementById("productCount")
+        .innerHTML = "";
+
+        productBox.innerHTML = `
+
+            <div class="no-products">
+
+                ❌ Unable to load products.
+
+                <br><br>
+
+                Please make sure Smart Agro
+                server is running.
+
+            </div>
+
+        `;
+
+    });
+
+}
+
+
+
+// =========================================
+// DISPLAY PRODUCTS
+// =========================================
+
+function displayProducts(products){
+
+    const productBox =
+        document.getElementById("productBox");
+
+    const productCount =
+        document.getElementById("productCount");
+
+
+    productBox.innerHTML = "";
+
+
+    productCount.innerHTML =
+        `${products.length} Product${products.length !== 1 ? "s" : ""} Found`;
+
+
+    if(products.length === 0){
+
+        productBox.innerHTML = `
+
+            <div class="no-products">
+
+                📦 No products found.
+
+                <br>
+
+                Try another category or search.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    products.forEach(product => {
+
+
+        const imageName =
+            product.image || "";
+
+
+        const imagePath =
+            imageName
+            ? "images/" + imageName
+            : "";
+
+
+        let imageHTML = "";
+
+
+        if(imagePath){
+
+            imageHTML = `
+
+                <img
+                    src="${imagePath}"
+                    alt="${escapeHTML(product.name)}"
+                    class="store-product-image"
+                    onerror="this.style.display='none'"
+                >
+
+            `;
+
+        }
+
+
+        const name =
+            escapeHTML(product.name || "Product");
+
+
+        const description =
+            escapeHTML(
+                product.description ||
+                "Quality grape farming product."
+            );
+
+
+        const category =
+            escapeHTML(
+                product.category ||
+                "Agriculture"
+            );
+
+
+        const price =
+            Number(product.price) || 0;
+
+
+        productBox.innerHTML += `
+
+            <div class="store-product-card">
+
+                ${imageHTML}
+
+                <div class="store-product-content">
+
+                    <span class="product-category">
+                        ${category}
+                    </span>
+
+                    <h3>
+                        ${name}
+                    </h3>
+
+                    <p>
+                        ${description}
+                    </p>
+
+                    <div class="product-price">
+                        ₹${price}
+                    </div>
+
+                    <button
+                        class="product-cart-btn"
+                        onclick="addProductToCart(
+                            '${escapeJS(product.name)}',
+                            ${price}
+                        )"
+                    >
+                        🛒 Add To Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+        `;
+
+    });
+
+}
+
+
+
+// =========================================
+// CATEGORY FILTER
+// =========================================
+
+function filterProducts(category, button){
+
+    currentCategory =
+        category;
+
+
+    document
+        .querySelectorAll(".category-filter")
+        .forEach(btn => {
+
+            btn.classList.remove("active");
+
+        });
+
+
+    if(button){
+
+        button.classList.add("active");
+
+    }
+
+
+    applyFilters();
+
+}
+
+
+
+// =========================================
+// SEARCH
+// =========================================
+
+function searchProducts(){
+
+    applyFilters();
+
+}
+
+
+
+// =========================================
+// APPLY CATEGORY + SEARCH
+// =========================================
+
+function applyFilters(){
+
+    const searchInput =
+        document.getElementById("productSearch");
+
+
+    const searchText =
+        searchInput
+        ? searchInput.value
+            .toLowerCase()
+            .trim()
+        : "";
+
+
+    let filtered =
+        allProducts.filter(product => {
+
+
+            const category =
+                String(
+                    product.category || ""
+                )
+                .toLowerCase()
+                .trim();
+
+
+            const name =
+                String(
+                    product.name || ""
+                )
+                .toLowerCase();
+
+
+            const description =
+                String(
+                    product.description || ""
+                )
+                .toLowerCase();
+
+
+            const categoryMatch =
+                currentCategory === "all"
+                ||
+                category ===
+                currentCategory
+                    .toLowerCase()
+                    .trim();
+
+
+            const searchMatch =
+                !searchText
+                ||
+                name.includes(searchText)
+                ||
+                description.includes(searchText);
+
+
+            return categoryMatch && searchMatch;
+
+        });
+
+
+    displayProducts(filtered);
+
+}
+
+
+
+// =========================================
+// SAFE HTML
+// =========================================
+
+function escapeHTML(value){
+
+    return String(value || "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+
+// =========================================
+// SAFE JS STRING
+// =========================================
+
+function escapeJS(value){
+
+    return String(value || "")
+        .replace(/\\/g,"\\\\")
+        .replace(/'/g,"\\'")
+        .replace(/\n/g,"\\n")
+        .replace(/\r/g,"\\r");
+
+}
+
+
+
+// =========================================
+// CART CONNECTION
+// =========================================
+
+function addProductToCart(name,price){
+
+    if(typeof addToCart === "function"){
+
+        addToCart(name,price);
+
+    }
+    else{
+
+        let cart =
+            JSON.parse(
+                localStorage.getItem("cart")
+            ) || [];
+
+
+        cart.push({
+            name:name,
+            price:price
+        });
+
+
+        localStorage.setItem(
+            "cart",
+            JSON.stringify(cart)
+        );
+
+
+        alert(
+            name +
+            " added to cart 🛒"
+        );
+
+    }
+
+}
+
+
+
+// =========================================
+// PAGE LOAD
+// =========================================
+
+document.addEventListener(
+    "DOMContentLoaded",
+    loadProducts
+);
+
+</script>
+
+
+</body>
+
+</html>
